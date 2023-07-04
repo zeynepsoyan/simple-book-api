@@ -1,0 +1,17 @@
+{
+  "name": "hubx-backend-case",
+  "version": "1.0.0",
+  "description": "Backend Recruitment Case for HubX",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zeynep Hazal Soyan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.2"
+  }
+}
