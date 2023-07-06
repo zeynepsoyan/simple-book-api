@@ -6,5 +6,6 @@ node_modules/
 .vscode-test
 
 build
+data
 .DS_Store
 .env

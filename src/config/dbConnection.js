@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://zhs:dgTMEBteSfeE5PNn@cluster0.adzp0zk.mongodb.net/hbx-API?retryWrites=true&w=majority";
 
 const connectDb = async () => {
     try {
-        await mongoose.connect(uri, 
+        await mongoose.connect(process.env.MONGODB_URI, 
         {
             useNewUrlParser: true, useUnifiedTopology: true
         });
