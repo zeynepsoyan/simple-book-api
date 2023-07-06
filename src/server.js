@@ -1,15 +1,15 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const connectDb = require("./config/dbConnection");
+
 const app = express();
-
-app.get('/', (req, res) => {
-    res.send('Hello API!')
-})
-
-// parse requests of content-type - application/json
 app.use(express.json());
+app.use("/api/books", require("./routes/booksRoutes"));
 
-// set port, listen for requests
+connectDb();
+
 const PORT = 8080;
+// Start the application.
 app.listen(PORT, () => {
-  console.log("Server is running on port 8080.");
-});
+    console.log(`Server is running on port ${PORT}`);
+    });
