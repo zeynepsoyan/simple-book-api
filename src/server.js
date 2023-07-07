@@ -2,11 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const connectDb = require("./config/dbConnection");
-const connectTestDb = require("../test/config/testDbConnection");
 
 const app = express();
 app.use(express.json());
 app.use("/api/books", require("./routes/booksRoutes"));
+app.use("/api/authors", require("./routes/authorsRoutes"));
 
 if (process.env.NODE_ENV === "test") {
     console.log("Test environment");

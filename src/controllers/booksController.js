@@ -30,7 +30,7 @@ const createBook = async (req, res) => {
     }
     catch (error) {
         console.error("Error creating book:", error);
-        res.status(500).json({ message: "Failed to create book" });
+        res.status(500).json({ message: `Failed to create book. ${error}`});
     }
 }
 
@@ -53,7 +53,7 @@ const updateBook = async (req, res) => {
     }
     catch (error) {
         console.error("Error updating book:", error);
-        res.status(500).json({ message: "Failed to update book" });
+        res.status(500).json({ message: `Failed to update book. ${error}`});
     }
 }
 
@@ -71,7 +71,7 @@ const deleteBook = async (req, res) => {
     } 
     catch (error) {
         console.error("Error deleting book:", error);
-        res.status(500).json({ message: "Failed to delete book" });
+        res.status(500).json({ message: `Failed to delete book. ${error}`});
     }
 };
 
