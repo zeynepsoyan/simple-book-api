@@ -1,6 +1,9 @@
 # Book-Author CRUD API
 RESTful Book-Author Simple CRUD API using Node.js, MongoDB and Docker.
 
+## Prerequisites
+- Git
+- Docker
 
 ## Run it on your computer
 
@@ -16,20 +19,31 @@ Go to the project directory
   cd simple-book-api
 ```
 
-Install required packages
-
+Run Docker
 ```bash
-  npm install
+  docker-compose up
 ```
-
-Run server 
-
-```bash
-  npm run dev
-```
-
   
+## Seed DB
+`seedAuthors.js` and `seedBooks.js` can be used to populate the DB with data.
+
+To do so, update `CMD` in `Dockerfile` as follows:
+```bash
+CMD node src/config/seedAuthors.js && node src/server.js
+```
+
+Then: 
+- Use the API to get authors created by MongoDB.
+- Update the authorId fields in `seedBooks.js` with received authorIds.
+- In the app's docker image terminal, run `npm run seed-books`.
+
 ## API Usage
+
+#### Fetch all authors
+
+```http
+  GET /api/authors
+```
 
 #### Fetch all books
 
@@ -53,4 +67,10 @@ Run server
 
 ```http
   DELETE /api/books/:isbn
+```
+
+## Test
+
+```bash
+npm run test
 ```
