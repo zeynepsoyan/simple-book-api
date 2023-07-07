@@ -1,7 +1,7 @@
 {
-  "name": "hubx-backend-case",
+  "name": "simple-book-api",
   "version": "1.0.0",
-  "description": "Backend Recruitment Case for HubX",
+  "description": "Backend Recruitment Case",
   "main": "server.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --testTimeout=5000 --detectOpenHandles",
