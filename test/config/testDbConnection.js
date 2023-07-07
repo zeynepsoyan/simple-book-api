@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 
 const connectTestDb = async () => {
     try {
-        await mongoose.connect("mongodb+srv://zhs:dgTMEBteSfeE5PNn@cluster0.adzp0zk.mongodb.net/hbx-API-test?retryWrites=true&w=majority", 
+        await mongoose.connect(process.env.MONGODB_TEST_URI, 
         {
             useNewUrlParser: true, useUnifiedTopology: true
         });
