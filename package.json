@@ -4,13 +4,12 @@
   "description": "Backend Recruitment Case",
   "main": "server.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --testTimeout=5000 --detectOpenHandles",
+    "test": "node test/config/seedTestAuthors.js && node test/config/seedTestBooks.js && cross-env NODE_ENV=test jest --testTimeout=5000 --detectOpenHandles",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "seed-authors": "node src/config/seedAuthors.js",
     "seed-books": "node src/config/seedBooks.js",
-    "seed-test-authors": "node test/config/seedTestAuthors.js",
-    "seed-test-books": "node test/config/seedTestBooks.js"
+    "seed-test-authors": "node test/config/seedTestAuthors.js"
   },
   "author": "Zeynep Hazal Soyan",
   "license": "ISC",

@@ -4,6 +4,9 @@ const Author = require("../../src/models/author");
 
 connectTestDb()
     .then(() => {
+        return Author.deleteMany({});
+    })
+    .then(() => {
         const authorsData = [
             {
                 name: "J.R.R. Tolkien",

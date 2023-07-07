@@ -1,17 +1,19 @@
 const mongoose = require("mongoose");
 const connectTestDb = require("../config/testDbConnection");
 const Book = require("../../src/models/book");
+const Author = require("../../src/models/author");
 
 connectTestDb()
     // Delete all books
     .then(() => {
         return Book.deleteMany({});
     })
-    .then(() => {
+    .then(async () => {
+        const authors = await Author.find();
         const booksData = [
             {
                 title: "The Fellowship of the Ring",
-                authorId: "64a72b4bff08decf4a1afd8a",
+                authorId: authors[0]._id,
                 price: 17.85,
                 isbn: "978-0261102354",
                 language: "English",
@@ -20,7 +22,7 @@ connectTestDb()
             },
             {
                 title: "The Two Towers",
-                authorId: "64a72b4bff08decf4a1afd8a",
+                authorId: authors[0]._id,
                 price: 15.20,
                 isbn: "978-0547928203",
                 language: "English",
@@ -29,7 +31,7 @@ connectTestDb()
             },
             {
                 title: "The Return of the King",
-                authorId: "64a72b4bff08decf4a1afd8a",
+                authorId: authors[0]._id,
                 price: 16.15,
                 isbn: "978-0261102378",
                 language: "English",
@@ -48,4 +50,8 @@ connectTestDb()
           console.error(error);
           mongoose.disconnect();
         });
+    })
+    .catch((error) => {
+        console.error("Error retrieving authors:", error);
+        mongoose.disconnect();
     });
