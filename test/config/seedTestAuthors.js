@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const connectDb = require("../config/dbConnection");
-const Author = require("../models/author");
+const connectTestDb = require("../config/testDbConnection");
+const Author = require("../../src/models/author");
 
-connectDb()
+connectTestDb()
     .then(() => {
         const authorsData = [
             {

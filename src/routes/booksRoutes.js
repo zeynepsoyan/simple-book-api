@@ -6,7 +6,7 @@ router.route("/")
     .get(booksController.getAllBooks)
     .post(booksController.createBook);
 
-router.route('/:id')
+router.route("/:isbn")
     .put(booksController.updateBook)
     .delete(booksController.deleteBook);
 
